@@ -1,17 +1,13 @@
 services:
   - type: web
-    name: metagenerator-app
-    env: python
-    region: oregon
+    name: metagenerator
+    runtime: python
     plan: free
-    buildCommand: pip install -r requirements.txt
-    startCommand: gunicorn metagenerator.app:app  
-    autoDeploy: true
-    repo: https://github.com/sher280/metadatagen
+    region: oregon
     branch: main
-    rootDir: metagenerator
-    envVars:
-      - key: FLASK_ENV
-        value: production
-      - key: OPENROUTER_API_KEY
-        value: your_actual_api_key
+    buildCommand: |
+      apt-get update
+      apt-get install -y python3.11-dev build-essential
+      pip install --upgrade pip
+      pip install -r requirements.txt
+    startCommand: python app.py
