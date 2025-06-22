@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Document</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Automated Metadata Generator</h1>
+        <div class="card">
+            <h2>Upload Document</h2>
+            <form action="/" method="post" enctype="multipart/form-data">
+                <div class="file-input">
+                    <input type="file" name="file" required>
+                </div>
+                <button type="submit">Generate Metadata</button>
+            </form>
+            <p class="formats">Supported formats: PDF, DOCX, TXT, Images</p>
+        </div>
+    </div>
+</body>
+</html>
