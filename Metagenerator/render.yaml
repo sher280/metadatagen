@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: flask-app
+    env: python
+    region: oregon
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app  # if your file is main.py
+    autoDeploy: true
+    repo: https://github.com/yourusername/your-flask-repo
+    branch: main
+    envVars:
+      - key: FLASK_ENV
+        value: production
+      - key: OPENROUTER_API_KEY
+        value: your_actual_api_key

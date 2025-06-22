@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metadata Results</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Document Metadata</h1>
+        
+        {% if metadata.error %}
+            <div class="error">
+                <h2>Error Processing Document</h2>
+                <p>{{ metadata.error }}</p>
+            </div>
+        {% else %}
+            <div class="metadata-card">
+                <div class="header">
+                    <h2>{{ metadata.title }}</h2>
+                    <div class="badges">
+                        <span class="badge category">{{ metadata.category }}</span>
+                        {% if metadata.document_type %}
+                            <span class="badge type">{{ metadata.document_type }}</span>
+                        {% endif %}
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <h3>Summary</h3>
+                    <p>{{ metadata.summary }}</p>
+                </div>
+                
+                <div class="section">
+                    <h3>Topics</h3>
+                    <p>{{ metadata.topics }}</p>
+                </div>
+                
+                <div class="flex-row">
+                    <div class="section">
+                        <h3>Keywords</h3>
+                        <div class="keywords">
+                            {% for keyword in metadata.keywords %}
+                                <span class="keyword">{{ keyword }}</span>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    
+                    <div class="section">
+                        <h3>Document Type</h3>
+                        <p>{{ metadata.document_type or "N/A" }}</p>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+        
+        <a href="/" class="upload-another">Upload Another Document</a>
+    </div>
+</body>
+</html>
