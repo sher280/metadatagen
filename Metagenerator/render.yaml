@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: flask-app
+    name: metagenerator-app
     env: python
     region: oregon
     plan: free
