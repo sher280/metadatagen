@@ -6,7 +6,7 @@ services:
     region: oregon
     plan: free
     buildCommand: pip install -r requirements.txt
-    startCommand: gunicorn metagenerator.app:app  
+    startCommand: gunicorn Metagenerator.app:app  
     autoDeploy: true
     repo: https://github.com/sher280/metadatagen
     branch: main
