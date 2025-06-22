@@ -9,5 +9,3 @@ pytesseract
 Pillow
 requests
 python-dotenv
-setuptools
-python==3.11.9
