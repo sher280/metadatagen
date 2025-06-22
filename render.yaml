@@ -5,9 +5,13 @@ services:
     plan: free
     region: oregon
     branch: main
+    rootDir: metagenerator
     buildCommand: |
-      apt-get update
-      apt-get install -y python3.11-dev build-essential
       pip install --upgrade pip
       pip install -r requirements.txt
-    startCommand: python app.py
+    startCommand: gunicorn app:app
+    envVars:
+      - key: FLASK_ENV
+        value: production
+      - key: OPENROUTER_API_KEY
+        value: your_actual_api_key
